@@ -7,7 +7,7 @@ R=6.8987; % 最適化結果 K=2
 eta_0=2^R-1;
 K=2; % Number of anntenas
 numUsers=2; % This code only supports m=2.
-sysnum=5000000; % Number of iterations
+sysnum=1000000; % Number of iterations
 
 user(numUsers)=struct('id',[],'active_flag',[],'decode_flag',[],'snr',[],'sinr',[],'buffer_flag',[],'current_flag',[]);
 
@@ -77,6 +77,7 @@ for p=0.0:0.05:1
                     if user(i).decode_flag == 0 && user(i).active_flag == 1 %まだ復号されていない　かつ　アクティブ
                         if user(i).sinr(ant_k) > eta_0                  %i番目のデバイスは復号可能
                             correct_packet=correct_packet+1;
+                            count=count+1;
                             user(i).buffer_flag=0;
                             user(i).decode_flag=1;
 
@@ -85,6 +86,7 @@ for p=0.0:0.05:1
                                     if user(j).snr(ant_k)>eta_0 || user(j).buffer_flag==1
                                         if user(j).current_flag==0 && user(j).decode_flag == 0
                                             correct_packet=correct_packet+1;
+                                            count=count+1;
                                             user(j).buffer_flag=0;
                                             user(j).decode_flag=1;
                                         end
