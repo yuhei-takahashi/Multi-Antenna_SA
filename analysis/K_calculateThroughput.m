@@ -15,7 +15,7 @@ tr_throughput_matrix(3) = 2.0 * Dec11(p, ch, L) + 2.0 * Dec22(p, ch, L) + 2.0 * 
 % calculate throughput
 result = steadyState .* tr_throughput_matrix';
 Throughput = sum(result);
-
+%Throughput = sum(tr_throughput_matrix); %without inter-SIC
 
 end
 
