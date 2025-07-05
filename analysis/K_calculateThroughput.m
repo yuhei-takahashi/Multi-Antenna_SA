@@ -300,7 +300,6 @@ end
 
 % Pr{C^\prime}
 function result = calculatePrC(ch)
-% 引数
 N = length(ch.MG_a);
 eta_0 = ch.eta_0;
 
