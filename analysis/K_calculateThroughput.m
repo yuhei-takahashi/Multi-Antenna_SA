@@ -6,20 +6,20 @@ tr_throughput_matrix(1) = Dec11(p, ch, L) + Dec21(p, ch, L) + 2.0 * Dec22(p, ch,
 
 % calculate the (2,1) entry
 tr_throughput_matrix(2) = 2.0 * Rec_nop(p, ch, L) + Rec_pot(p, ch, L);
-% tr_throughput_matrix(2) = 0; %without inter-SIC
+% tr_throughput_matrix(2) = 0; % without inter-SIC
 
 % calculate the (3,1) entry
 tr_throughput_matrix(3) = 2.0 * Dec11(p, ch, L) + 2.0 * Dec22(p, ch, L) + 2.0 * Dec21(p, ch, L);
-% tr_throughput_matrix(3) = 0; %without inter-SIC
+% tr_throughput_matrix(3) = 0; % without inter-SIC
 
 % calculate throughput
 result = steadyState .* tr_throughput_matrix';
 Throughput = sum(result);
-%Throughput = sum(tr_throughput_matrix); %without inter-SIC
+% Throughput = sum(tr_throughput_matrix); % without inter-SIC
 
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ============ Integral regions ============
 
 % P_{\mathsf{A}} or P_{\breve{\mathsf{A}}}
 function prob = P_and(ch)
@@ -300,9 +300,9 @@ end
 
 % Pr{C^\prime}
 function result = calculatePrC(ch)
+
 N = length(ch.MG_a);
 eta_0 = ch.eta_0;
-
 result = 0;
 
 for n = 1:N
@@ -352,7 +352,8 @@ for k1 = 0:b_n-1
 end
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ============ Event Probabilities ============
 
 % P\{E_1^1\}
 function prob = Dec11(p,ch,L)
