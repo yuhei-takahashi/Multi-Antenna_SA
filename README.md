@@ -4,7 +4,7 @@
 
 
 ## A quick Demo
-Please run the ```simulation/Sim_Multi-anntenna_SA_MG.m``` and ```analysis/Ana_Multi-anntena_SA_MG.m```.
+Please run the ```simulation/Sim_Multi-anntenna_SA_MG.m```,  ```analysis/optimization.m``` and ```analysis/Ana_Multi-anntena_SA_MG.m```.
 To run the programs in this folder, the following packages need to be installed:
 
 * **matlab2tikz** (for exporting figures to Overleaf)
