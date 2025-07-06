@@ -4,11 +4,9 @@ function ret=phi(N,c,n,K,A)
     for j=1:N
         zeta_j=Zeta_Rice(j,K,A);
         J1=zeta_j.*gamma(j).*c.^(-j);
-        %J1=zeta_j.*gamma(n).*c.^(-n);
         J=J+J1;
     end
 
         zeta_n=Zeta_Rice(n,K,A);
-
         ret=zeta_n./J;
 end
