@@ -1,12 +1,12 @@
 format long
 SNR=20;
-R_set=5.8202;
-L_set =[2000]; % the number of Antenna
+R_set=5;
+L_set =[2]; % the number of Antenna
 
 % 1:rician(K=3), 2:Rayleigh, 3:Nakagami-m(m=5)
 type=1;
 
-disp("数値計算：混合ガンマ")
+disp("< MG analysis>")
 for Antnum=L_set
     for snr_set=SNR
         for R=R_set
@@ -14,13 +14,14 @@ for Antnum=L_set
             channel.snr = 10^(snr_set/10);
 
             if type==1
+                % rician
                 N=20;
                 rice_K=3;
                 channel.MG_b=1:N;
                 channel.MG_c=((1+rice_K)/(channel.snr)).*ones(1,N);
                 channel.MG_a=phi(N,channel.MG_c,channel.MG_b,rice_K,channel.snr);
             elseif type==2
-                % レイリー
+                % Rayleigh
                 N=1;
                 channel.MG_b=ones(1,N);
                 channel.MG_c=(1/channel.snr).*ones(1,N);
@@ -34,7 +35,7 @@ for Antnum=L_set
                 channel.MG_a=(m^m)/(gamma(m)*(channel.snr)^m);
             end
 
-            % ファイル作成
+            % output to a file
             outputFolder = 'Ana_data_new_SNR';
             if ~exist(outputFolder, 'dir')
                 mkdir(outputFolder);
@@ -45,7 +46,7 @@ for Antnum=L_set
             fprintf(filename_Rs,'p R_s\n');
 
             tic
-            
+
             fprintf('Antenna num=%d\n', Antnum);
             disp('p R_s');
             for p =0:0.01:1
@@ -53,34 +54,29 @@ for Antnum=L_set
 
                 matrix = K_state_TR_matrix(channel, p, x, R, Antnum);
 
-                % 3x3 行列を定常分布計算のための遷移行列とみなし、その固有値と固有ベクトルを計算
+                % Consider the 3x3 matrix as a transition matrix for computing the steady-state distribution
                 [V, D] = eig(matrix');
 
-                % 固有値が 1 に最も近い固有ベクトルを取得
+                % Select the eigenvector corresponding to the eigenvalue closest to 1
                 [~, idx] = min(abs(diag(D) - 1.0));
                 steady_state = V(:, idx);
 
-                % 定常分布を正規化
+                % Normalize the steady-state distribution
                 steady_state = steady_state / sum(steady_state);
 
-                % Throughputを計算
+                % Compute the throughput
                 Throughput = K_calculateThroughput(channel,steady_state, p, R, Antnum);
 
-
-                % 結果の表示
+                % Display the result
                 R_s = R*Throughput;
                 disp([num2str(p), ' ',  num2str(R_s, '%.6f')]);
 
-
-                % txtファイル出力
+                % Write to a text file
                 fprintf(filename_Rs,'%f %f\n',p,R_s);
             end
             toc
 
-            % txtファイル出力
             fclose(filename_Rs);
-
-
         end
     end
 end
