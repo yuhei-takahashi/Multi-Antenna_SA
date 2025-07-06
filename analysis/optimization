@@ -1,16 +1,16 @@
 tic
-L = [30]; % Number of antennas
+L = [2]; % Number of antennas
 
-SNR_dB=20;
+SNR_dB=15;
 snr = 10^(SNR_dB/10);
 
 % 1:rician(K=3), 2:Rayleigh, 3:Nakagami-m(m=5)
-type=2;
+type=1;
 
 for Antnum=L
 
     % initial settings [p,R]
-    x0 = [1, 4]; % Please adjust these settings to avoid local optima!!!!!
+    x0 = [0.6, 4]; % Please adjust these settings to avoid local optima!!!!!
 
     % define the range [p,R]
     lb = [0.000001,0.000001];  % lower bound
