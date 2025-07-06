@@ -12,7 +12,7 @@ sysnum=10^3;
 % --- Show simulation parameters ---
 fprintf('=== Simulation Parameters ===\n');
 fprintf('# of Antennas : %d\n', numAntennas);
-fprintf('# of users    : %d\n', 2);
+fprintf('# of users    : %d\n', numUsers);
 fprintf('SNR           : %d dB\n', SNR);
 fprintf('Code Rate R   : %.4f\n', R);
 fprintf('Rician K      : %d\n', rice_K);
