@@ -16,7 +16,8 @@ matrix(3,2) = 0.0;
 matrix(3,3) = Dec00(p)+Dec10(p, ch, L)+Dec20(p, ch, L);
 
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ============ Integral regions ============
 
 % P_{\mathsf{A}} or P_{\breve{\mathsf{A}}}
 function prob = P_and(ch)
@@ -345,8 +346,7 @@ for k1 = 0:b_n-1
 end
 end
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ============ Event Probabilities ============
 
 % P\{E_0^0\}
 function prob = Dec00(p)
@@ -364,9 +364,9 @@ for n=1:N
     c_n=ch.MG_c(n);
     temp_10=temp_10+a_n*(c_n^(-b_n))*gamma(b_n)*gammainc(c_n*eta_0,b_n);
 end
- x = 1 - temp_10;
- X = L * log1p(-x);
- prob = 2 * p * (1 - p) * exp(X);
+x = 1 - temp_10;
+X = L * log1p(-x);
+prob = 2 * p * (1 - p) * exp(X);
 end
 
 % P\{E_1^1\}
@@ -380,16 +380,15 @@ for n=1:N
     c_n=ch.MG_c(n);
     temp_11=temp_11+a_n*(c_n^(-b_n))*gamma(b_n)*gammainc(c_n*eta_0,b_n,"upper");
 end
-
- X = L * log1p(-temp_11);
- prob = 2 * p * (1 - p) * (1 - exp(X));
+X = L * log1p(-temp_11);
+prob = 2 * p * (1 - p) * (1 - exp(X));
 end
 
 % P\{E_0^2\}
 function prob = Dec20(p, ch, L)
- A = Col_0(ch) + Col_1(ch) + P_2(ch);
- X = L * log1p(2 * A - 1);
- prob = p^2 * exp(X);
+A = Col_0(ch) + Col_1(ch) + P_2(ch);
+X = L * log1p(2 * A - 1);
+prob = p^2 * exp(X);
 end
 
 % P\{E_1^2\}
@@ -466,4 +465,3 @@ diff_exp = exp(X - M) + exp(Y - M) - 2 * exp(Z - M);
 diff_exp = max(diff_exp, 0);
 prob = p^2 * exp(M) * diff_exp;
 end
-
