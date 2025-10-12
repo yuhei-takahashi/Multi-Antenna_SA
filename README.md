@@ -1,4 +1,4 @@
-# SIC-Based_Slotted-ALOHA
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
 In this repository, we provide MATLAB implementations corresponding to our paper on Spatio-Temporal SIC-Based Slotted ALOHA with Multi-Antenna Reception.
