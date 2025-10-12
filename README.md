@@ -13,7 +13,7 @@ In the theoretical analysis, the maximum sum rate is achieved by simultaneously 
 The numerical results illustrate the performance gains achieved by employing multiple antennas in the slotted ALOHA scheme over general fading channels.
 
 ## A quick Demo
-Please run the ```simulation/Sim_2user_Multi_anntenna_SA_MG.m```, ```simulation/Sim_MultiAnt_OptR.m```,  ```analysis/optimization.m``` and ```analysis/Ana_Multi-anntena_SA_MG.m```.
+Please run the ```simulation/Sim_2user_Multi_anntenna_SA_MG.m```, ```simulation/Sim_MultiAnt_OptR.m```,  ```analysis/optimization.m``` and ```analysis/Ana_Multi-antenna_SA_MG.m```.
 To run the programs in this folder, the following packages need to be installed:
 
 * **matlab2tikz** (for exporting figures to Overleaf)
