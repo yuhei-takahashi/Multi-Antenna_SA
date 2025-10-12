@@ -1,7 +1,16 @@
 # SIC-Based_Slotted-ALOHA
 
-## Highlights
-This repository provides MATLAB codes for simulating and analyzing SIC-Based Slotted ALOHA with Multi-Antenna Reception. The scripts include both analytical and simulation-based evaluations of system throughput, optimization of the code rate, and visualization tools for performance comparison.
+## Overview
+In this repository, we provide MATLAB implementations corresponding to our paper on Spatio-Temporal SIC-Based Slotted ALOHA with Multi-Antenna Reception.
+
+In this work, we analyze the sum rate of a spatio-temporal successive interference cancellation (SIC)-based two-device slotted ALOHA system with real-time feedback and multi-antenna reception over fading channels.
+In the decoding process, spatio-temporal SIC is applied jointly across time slots and antenna elements.
+
+The probability density functions of fading channels are approximated using a mixture gamma distribution.
+Based on this approximation, the SIC-based slotted ALOHA with real-time feedback is modeled as a Markov process, from which we derive its exact analytical expression for throughput.
+
+In the theoretical analysis, the maximum sum rate is achieved by simultaneously optimizing the transmission probability and coding rate of devices.
+The numerical results illustrate the performance gains achieved by employing multiple antennas in the slotted ALOHA scheme over general fading channels.
 
 ## A quick Demo
 Please run the ```simulation/Sim_2user_Multi_anntenna_SA_MG.m```, ```simulation/Sim_MultiAnt_OptR.m```,  ```analysis/optimization.m``` and ```analysis/Ana_Multi-anntena_SA_MG.m```.
