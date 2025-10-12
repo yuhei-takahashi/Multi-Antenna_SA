@@ -1,7 +1,7 @@
 # SIC-Based_Slotted-ALOHA
 
 ## Highlights
-
+This repository provides MATLAB codes for simulating and analyzing SIC-Based Slotted ALOHA with Multi-Antenna Reception. The scripts include both analytical and simulation-based evaluations of system throughput, optimization of the code rate, and visualization tools for performance comparison.
 
 ## A quick Demo
 Please run the ```simulation/Sim_2user_Multi_anntenna_SA_MG.m```, ```simulation/Sim_MultiAnt_OptR.m```,  ```analysis/optimization.m``` and ```analysis/Ana_Multi-anntena_SA_MG.m```.
