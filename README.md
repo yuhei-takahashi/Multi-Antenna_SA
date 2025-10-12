@@ -29,3 +29,12 @@ Any pull requests or issues are welcome.
 
 ## Citations
 Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follows.
+```
+@ARTICLE{Takahashi2025Sum,
+  author={Takahashi, Yuhei and 
+          Fukui, Daiki and Song, Guanghui and Kimura, Tomotaka and Liu, Zilong and Jun Cheng}, 
+  title={Spatio-Temporal {SIC}-Based Slotted {ALOHA}
+with Multi-Antenna Reception}, 
+   url={https://github.com/yuhei-takahashi/Multi-Antenna_SA/blob/main/SpatioTemporal_SIC_SA.pdf}
+}
+```
